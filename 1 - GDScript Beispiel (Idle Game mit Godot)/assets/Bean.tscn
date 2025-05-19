@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d362w7kxaksg"]
+
+[ext_resource type="Texture2D" uid="uid://b7cgcs12yauua" path="res://assets/can.png" id="1_gcvgg"]
+[ext_resource type="Script" uid="uid://cyxgad5s1pj01" path="res://scripts/bean.gd" id="1_sv8il"]
+[ext_resource type="AudioStream" uid="uid://coot1njoofno2" path="res://assets/wiwiwi.mp3" id="3_wuu6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y8f4"]
+
+[node name="Bean" type="Area2D"]
+script = ExtResource("1_sv8il")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gcvgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7.76, 11.68)
+shape = SubResource("RectangleShape2D_3y8f4")
+
+[node name="wiwiwi" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wuu6g")
+volume_db = 20.0

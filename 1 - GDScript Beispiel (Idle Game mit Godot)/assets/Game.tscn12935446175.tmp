@@ -1,0 +1,191 @@
+[gd_scene load_steps=7 format=3 uid="uid://bndo77ytxf52n"]
+
+[ext_resource type="Script" uid="uid://ccfudoxd0xqfa" path="res://scripts/game.gd" id="1_608ya"]
+[ext_resource type="PackedScene" uid="uid://bfse7hyno6d2y" path="res://assets/Popup.tscn" id="2_jp0pw"]
+[ext_resource type="Script" uid="uid://cbtnegcyxxir4" path="res://scripts/confirmation_popup.gd" id="3_jp0pw"]
+[ext_resource type="PackedScene" uid="uid://cntn6hk5oujn" path="res://assets/WeekSummaryPopup.tscn" id="4_2jnvy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_608ya"]
+font_size = 50
+outline_size = 20
+outline_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp0pw"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_608ya")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TopMenuPanel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TopMenuPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="Label (Twitch)" type="Label" parent="VBoxContainer/TopMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Twitch Subscribers:"
+horizontal_alignment = 1
+
+[node name="Label (HappinessR)" type="Label" parent="VBoxContainer/TopMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Raven Happiness:"
+horizontal_alignment = 1
+
+[node name="Label (Feedback)" type="Label" parent="VBoxContainer/TopMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Viewer Feedback:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterCharacters" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterTali" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterCharacters"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="BottomActionMenu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="ButtonCharisma" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Work On Charisma "
+
+[node name="ButtonContent" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Prepare Content "
+
+[node name="ButtonCats" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Take Care Of Cats "
+
+[node name="ButtonSocialMedia" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Maintain Social Media "
+
+[node name="ButtonNewVideo" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Post A New Video "
+
+[node name="ButtonGoLive" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Go live on Twitch "
+
+[node name="ButtonTakeBreak" type="Button" parent="VBoxContainer/BottomActionMenu"]
+layout_mode = 2
+text = " Take A Break "
+
+[node name="ActionPopupLayer" type="CanvasLayer" parent="."]
+
+[node name="ClickBlocker" type="ColorRect" parent="ActionPopupLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ActionPopup" parent="ActionPopupLayer" instance=ExtResource("2_jp0pw")]
+visible = false
+
+[node name="DayStartPopup" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="DayStartPopup"]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="DayStartPopup/CenterContainer"]
+layout_mode = 2
+text = "Day 1, Week 1"
+label_settings = SubResource("LabelSettings_608ya")
+
+[node name="LabelDayInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBoxConfirmToggle" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Confirmation Mode"
+
+[node name="ConfirmationPopupLayer" type="CanvasLayer" parent="."]
+
+[node name="ConfirmationPopup" type="Window" parent="ConfirmationPopupLayer"]
+position = Vector2i(0, 36)
+size = Vector2i(500, 100)
+visible = false
+script = ExtResource("3_jp0pw")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConfirmationPopupLayer/ConfirmationPopup"]
+offset_right = 500.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_jp0pw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="ButtonYes" type="Button" parent="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = " Yes "
+
+[node name="ButtonNo" type="Button" parent="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = " No "
+
+[node name="WeekSummaryPopup" parent="ConfirmationPopupLayer" instance=ExtResource("4_2jnvy")]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonCharisma" to="." method="_on_button_wowPodcast_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonContent" to="." method="_on_button_wowPodcast_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonCats" to="." method="_on_button_wowPodcast_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonSocialMedia" to="." method="_on_button_wowPodcast_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonNewVideo" to="." method="_on_button_newVideo_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonGoLive" to="." method="_on_button_streamTogether_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomActionMenu/ButtonTakeBreak" to="." method="_on_button_takeBreak_pressed"]
+[connection signal="pressed" from="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer/HBoxContainer/ButtonYes" to="ConfirmationPopupLayer/ConfirmationPopup" method="_on_button_yes_pressed"]
+[connection signal="pressed" from="ConfirmationPopupLayer/ConfirmationPopup/MarginContainer/HBoxContainer/ButtonNo" to="ConfirmationPopupLayer/ConfirmationPopup" method="_on_button_no_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv72wsbq7h2vg"]
+
+[ext_resource type="Script" uid="uid://b1j6ui8th4y0k" path="res://scripts/beanfloatlabel.gd" id="1_h0pta"]
+
+[node name="BeanFloatLabel" type="Node2D"]
+script = ExtResource("1_h0pta")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.604656, 5.77569e-07, 0.230047, 1)
+theme_override_colors/font_shadow_color = Color(0.229504, 2.64719e-07, 0.0679381, 1)
+theme_override_colors/font_outline_color = Color(0.229504, 2.64719e-07, 0.0679381, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "+1"

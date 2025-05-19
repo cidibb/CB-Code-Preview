@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuivtj8y6y341"]
+
+[ext_resource type="StyleBox" uid="uid://ljevyh6o73w8" path="res://assets/WeekSummaryPopup.tres" id="1_ix6qb"]
+[ext_resource type="StyleBox" uid="uid://b3uu3mu0uigrx" path="res://assets/continueButton.tres" id="2_dtbs1"]
+[ext_resource type="StyleBox" uid="uid://c47h13tmm24uj" path="res://assets/continueButtonHovered.tres" id="4_xx5re"]
+
+[sub_resource type="Theme" id="Theme_qxnay"]
+
+[node name="EventPopup" type="Panel"]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_ix6qb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qxnay")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BeanLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(550, 125)
+layout_mode = 2
+size_flags_horizontal = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="YesButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_styles/hover_pressed = ExtResource("4_xx5re")
+theme_override_styles/hover = ExtResource("4_xx5re")
+theme_override_styles/pressed = ExtResource("4_xx5re")
+theme_override_styles/normal = ExtResource("2_dtbs1")
+text = "Yes"
+autowrap_mode = 3
+
+[node name="NoButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_styles/hover_pressed = ExtResource("4_xx5re")
+theme_override_styles/hover = ExtResource("4_xx5re")
+theme_override_styles/pressed = ExtResource("4_xx5re")
+theme_override_styles/normal = ExtResource("2_dtbs1")
+text = "No"
+
+[node name="WarningLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 25)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.753386, 3.08277e-05, 1.59794e-05, 1)
+theme_override_colors/font_shadow_color = Color(0.14409, 5.88098e-07, 3.15858e-07, 1)
+theme_override_colors/font_outline_color = Color(0.14409, 5.88098e-07, 3.15858e-07, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

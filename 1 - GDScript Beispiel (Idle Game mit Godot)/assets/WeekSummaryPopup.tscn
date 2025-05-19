@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cntn6hk5oujn"]
+
+[ext_resource type="Script" uid="uid://cg7qxql521rk6" path="res://scripts/week_summary_popup.gd" id="1_4fvye"]
+[ext_resource type="StyleBox" uid="uid://ljevyh6o73w8" path="res://assets/WeekSummaryPopup.tres" id="1_wxajt"]
+[ext_resource type="StyleBox" uid="uid://b3uu3mu0uigrx" path="res://assets/continueButton.tres" id="2_60dvt"]
+[ext_resource type="StyleBox" uid="uid://c47h13tmm24uj" path="res://assets/continueButtonHovered.tres" id="4_pdubr"]
+
+[sub_resource type="Theme" id="Theme_60dvt"]
+
+[node name="WeekSummaryPopup" type="Panel"]
+custom_minimum_size = Vector2(600, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_wxajt")
+script = ExtResource("1_4fvye")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_60dvt")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StatSummary" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.839216, 0.862745, 1)
+horizontal_alignment = 1
+
+[node name="FeedbackFlavorText" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.839216, 0.862745, 1)
+horizontal_alignment = 1
+
+[node name="CatHealthWarning" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.901961, 0.839216, 0.862745, 1)
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " "
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover_pressed = ExtResource("2_60dvt")
+theme_override_styles/hover = ExtResource("4_pdubr")
+theme_override_styles/pressed = ExtResource("2_60dvt")
+theme_override_styles/normal = ExtResource("2_60dvt")
+text = " Continue "
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

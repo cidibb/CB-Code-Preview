@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://crhfe4c805373"]
+
+[ext_resource type="Script" uid="uid://dfg58rdaah3mx" path="res://scripts/bean_popup.gd" id="1_clr83"]
+
+[node name="BeanPopup" type="Label"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_clr83")

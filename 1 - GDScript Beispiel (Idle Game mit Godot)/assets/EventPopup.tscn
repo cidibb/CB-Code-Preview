@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://nikngh3v7g8t"]
+
+[ext_resource type="StyleBox" uid="uid://ljevyh6o73w8" path="res://assets/WeekSummaryPopup.tres" id="1_mlxmw"]
+[ext_resource type="StyleBox" uid="uid://b3uu3mu0uigrx" path="res://assets/continueButton.tres" id="2_rljc3"]
+
+[sub_resource type="Theme" id="Theme_qxnay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ewh5"]
+bg_color = Color(0.371882, 0.133407, 0.871221, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.152941, 0.027451, 0.4, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 15
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.8)
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[node name="EventPopup" type="Panel"]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_mlxmw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qxnay")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="EventLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(500, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+bbcode_enabled = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/hover_pressed = ExtResource("2_rljc3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ewh5")
+theme_override_styles/pressed = ExtResource("2_rljc3")
+theme_override_styles/normal = ExtResource("2_rljc3")
+text = " Continue "

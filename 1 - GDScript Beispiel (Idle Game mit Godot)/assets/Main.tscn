@@ -1,0 +1,259 @@
+[gd_scene load_steps=13 format=3 uid="uid://chmwsb53ttmdw"]
+
+[ext_resource type="Script" uid="uid://cvylvi62d4ogr" path="res://scripts/main.gd" id="1_m6kl7"]
+[ext_resource type="Texture2D" uid="uid://cahsltays708t" path="res://assets/continuenormal.png" id="3_q2jjo"]
+[ext_resource type="Texture2D" uid="uid://n6umrkm7ia7p" path="res://assets/continuehover.png" id="4_bbcn6"]
+[ext_resource type="Texture2D" uid="uid://cd72misdhoie" path="res://assets/newgamenormal.png" id="5_ymnl0"]
+[ext_resource type="Texture2D" uid="uid://bjyf40oelqvi" path="res://assets/newgamehover.png" id="6_66lid"]
+[ext_resource type="StyleBox" uid="uid://bd1vo2iehmuiw" path="res://assets/transparentbgwithtextbutton.tres" id="7_4j1e4"]
+[ext_resource type="Texture2D" uid="uid://uylwd37vkar5" path="res://assets/quitnormal.png" id="7_h17w6"]
+[ext_resource type="Texture2D" uid="uid://cudj5viu3w7j" path="res://assets/quithover.png" id="8_lpuik"]
+[ext_resource type="VideoStream" uid="uid://0brbpcfw4iix" path="res://assets/mainmenu.ogv" id="8_wmn7k"]
+[ext_resource type="Texture2D" uid="uid://cd3yw2jswe8ej" path="res://assets/music.png" id="10_bbcn6"]
+[ext_resource type="Texture2D" uid="uid://dssvaeme724p1" path="res://assets/ravenlogo2.png" id="11_bbcn6"]
+[ext_resource type="Texture2D" uid="uid://cqnye81rf45iw" path="res://assets/ravenidlegame.png" id="13_ymnl0"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_m6kl7")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.67, 0.67)
+stream = ExtResource("8_wmn7k")
+autoplay = true
+loop = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 191.0
+offset_right = 450.0
+offset_bottom = 349.0
+grow_vertical = 2
+
+[node name="ButtonContinue" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_q2jjo")
+texture_pressed = ExtResource("4_bbcn6")
+texture_hover = ExtResource("4_bbcn6")
+texture_focused = ExtResource("4_bbcn6")
+
+[node name="ButtonNewGame" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_ymnl0")
+texture_pressed = ExtResource("6_66lid")
+texture_hover = ExtResource("6_66lid")
+texture_focused = ExtResource("6_66lid")
+
+[node name="ButtonQuit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_h17w6")
+texture_pressed = ExtResource("8_lpuik")
+texture_hover = ExtResource("8_lpuik")
+texture_focused = ExtResource("8_lpuik")
+
+[node name="NewGamePopupLayer" type="CanvasLayer" parent="."]
+
+[node name="DimBackground" type="ColorRect" parent="NewGamePopupLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="NewGamePopup" type="Panel" parent="NewGamePopupLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -315.0
+offset_right = -259.0
+offset_bottom = -315.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NewGamePopupLayer/NewGamePopup"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = -3.0
+offset_right = 701.0
+offset_bottom = 65.0
+
+[node name="Label" type="Label" parent="NewGamePopupLayer/NewGamePopup/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 20
+text = "Damn bro, are you sure you want to start a new game? This will overwrite your save file."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NewGamePopupLayer/NewGamePopup/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ConfirmButton" type="Button" parent="NewGamePopupLayer/NewGamePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.603922, 0, 0.231373, 1)
+theme_override_colors/font_hover_color = Color(0.603922, 0, 0.231373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("7_4j1e4")
+theme_override_styles/disabled_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/disabled = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed = ExtResource("7_4j1e4")
+theme_override_styles/hover_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover = ExtResource("7_4j1e4")
+theme_override_styles/pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/pressed = ExtResource("7_4j1e4")
+theme_override_styles/normal_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/normal = ExtResource("7_4j1e4")
+text = "Wouldn't have clicked this otherwise, would I?    "
+
+[node name="CancelButton" type="Button" parent="NewGamePopupLayer/NewGamePopup/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.603922, 0, 0.231373, 1)
+theme_override_colors/font_hover_color = Color(0.603922, 0, 0.231373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("7_4j1e4")
+theme_override_styles/disabled_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/disabled = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed = ExtResource("7_4j1e4")
+theme_override_styles/hover_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover = ExtResource("7_4j1e4")
+theme_override_styles/pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/pressed = ExtResource("7_4j1e4")
+theme_override_styles/normal_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/normal = ExtResource("7_4j1e4")
+text = "... AKSHUALLY, I missclicked.. nvm"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1161.0
+offset_top = 6.0
+offset_right = 1347.0
+offset_bottom = 53.0
+
+[node name="Label2" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ToggleMusicButton" type="TextureButton" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("10_bbcn6")
+texture_pressed = ExtResource("10_bbcn6")
+texture_disabled = ExtResource("10_bbcn6")
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.341176, 0.0352941, 0.215686, 1)
+theme_override_colors/font_outline_color = Color(0.253236, 0.0192433, 0.155584, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 25
+text = "Play Music"
+
+[node name="SkipSongButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 188.0
+offset_top = 11.0
+offset_right = 248.0
+offset_bottom = 47.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.521569, 0.0470588, 0.305882, 1)
+theme_override_colors/font_hover_color = Color(0.521569, 0.0470588, 0.305882, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.32549, 0.0352941, 0.211765, 1)
+theme_override_colors/font_focus_color = Color(0.32549, 0.0352941, 0.211765, 1)
+theme_override_colors/font_pressed_color = Color(0.32549, 0.0352941, 0.211765, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("7_4j1e4")
+theme_override_styles/disabled_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/disabled = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover_pressed = ExtResource("7_4j1e4")
+theme_override_styles/hover_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/hover = ExtResource("7_4j1e4")
+theme_override_styles/pressed_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/pressed = ExtResource("7_4j1e4")
+theme_override_styles/normal_mirrored = ExtResource("7_4j1e4")
+theme_override_styles/normal = ExtResource("7_4j1e4")
+text = "(skip song)"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -219.0
+offset_right = -19.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_bbcn6")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1223.0
+offset_top = -501.0
+offset_right = -647.0
+offset_bottom = -291.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = -0.0872665
+texture = ExtResource("13_ymnl0")
+
+[connection signal="pressed" from="VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonNewGame" to="." method="_on_button_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="NewGamePopupLayer/NewGamePopup/VBoxContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="NewGamePopupLayer/NewGamePopup/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
